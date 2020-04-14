@@ -4,9 +4,7 @@
   font-style: normal;
   font-weight: 300;
   src: url("../fonts/noto-sans-kr-v12-latin_korean-300.eot");
-  /* IE9 Compat Modes */
-  src: local("Noto Sans KR Light"), local("NotoSansKR-Light"), url("../fonts/noto-sans-kr-v12-latin_korean-300.eot?#iefix") format("embedded-opentype"), url("../fonts/noto-sans-kr-v12-latin_korean-300.woff2") format("woff2"), url("../fonts/noto-sans-kr-v12-latin_korean-300.woff") format("woff"), url("../fonts/noto-sans-kr-v12-latin_korean-300.ttf") format("truetype");
-  /* Safari, Android, iOS */ }
+  src: local("Noto Sans KR Light"), local("NotoSansKR-Light"), url("../fonts/noto-sans-kr-v12-latin_korean-300.eot?#iefix") format("embedded-opentype"), url("../fonts/noto-sans-kr-v12-latin_korean-300.woff2") format("woff2"), url("../fonts/noto-sans-kr-v12-latin_korean-300.woff") format("woff"), url("../fonts/noto-sans-kr-v12-latin_korean-300.ttf") format("truetype"); }
 
 /* noto-sans-kr-regular - korean_latin */
 @font-face {
@@ -14,9 +12,7 @@
   font-style: normal;
   font-weight: 400;
   src: url("../fonts/noto-sans-kr-v12-latin_korean-regular.eot");
-  /* IE9 Compat Modes */
-  src: local("Noto Sans KR Regular"), local("NotoSansKR-Regular"), url("../fonts/noto-sans-kr-v12-latin_korean-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/noto-sans-kr-v12-latin_korean-regular.woff2") format("woff2"), url("../fonts/noto-sans-kr-v12-latin_korean-regular.woff") format("woff"), url("../fonts/noto-sans-kr-v12-latin_korean-regular.ttf") format("truetype");
-  /* Safari, Android, iOS */ }
+  src: local("Noto Sans KR Regular"), local("NotoSansKR-Regular"), url("../fonts/noto-sans-kr-v12-latin_korean-regular.eot?#iefix") format("embedded- opentype"), url("../fonts/noto-sans-kr-v12-latin_korean-regular.woff2") format("woff2"), url("../fonts/noto-sans-kr-v12-latin_korean-regular.woff") format("woff"), url("../fonts/noto-sans-kr-v12-latin_korean-regular.ttf") format("truetype"); }
 
 /* noto-sans-kr-700 - korean_latin */
 @font-face {
@@ -24,9 +20,23 @@
   font-style: normal;
   font-weight: 700;
   src: url("../fonts/noto-sans-kr-v12-latin_korean-700.eot");
-  /* IE9 Compat Modes */
-  src: local("Noto Sans KR Bold"), local("NotoSansKR-Bold"), url("../fonts/noto-sans-kr-v12-latin_korean-700.eot?#iefix") format("embedded-opentype"), url("../fonts/noto-sans-kr-v12-latin_korean-700.woff2") format("woff2"), url("../fonts/noto-sans-kr-v12-latin_korean-700.woff") format("woff"), url("../fonts/noto-sans-kr-v12-latin_korean-700.ttf") format("truetype");
-  /* Safari, Android, iOS */ }
+  src: local("Noto Sans KR Bold"), local("NotoSansKR-Bold"), url("../fonts/noto-sans-kr-v12-latin_korean-700.eot?#iefix") format("embedded-opentype"), url("../fonts/noto-sans-kr-v12-latin_korean-700.woff2") format("woff2"), url("../fonts/noto-sans-kr-v12-latin_korean-700.woff") format("woff"), url("../fonts/noto-sans-kr-v12-latin_korean-700.ttf") format("truetype"); }
+
+/* barlow-300 - latin */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/barlow-v4-latin-300.eot");
+  src: local("Barlow Light"), local("Barlow-Light"), url("../fonts/barlow-v4-latin-300.eot?#iefix") format("embedded-opentype"), url("../fonts/barlow-v4-latin-300.woff2") format("woff2"), url("../fonts/barlow-v4-latin-300.woff") format("woff"), url("../fonts/barlow-v4-latin-300.ttf") format("truetype"); }
+
+/* barlow-regular - latin */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/barlow-v4-latin-regular.eot");
+  src: local("Barlow Regular"), local("Barlow-Regular"), url("../fonts/barlow-v4-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/barlow-v4-latin-regular.woff2") format("woff2"), url("../fonts/barlow-v4-latin-regular.woff") format("woff"), url("../fonts/barlow-v4-latin-regular.ttf") format("truetype"); }
 
 /* barlow-semi-condensed-regular - latin */
 @font-face {
@@ -34,8 +44,15 @@
   font-style: normal;
   font-weight: 400;
   src: url("../fonts/barlow-semi-condensed-v5-latin-regular.eot");
-  /* IE9 Compat Modes */
   src: local("Barlow Semi Condensed Regular"), local("BarlowSemiCondensed-Regular"), url("../fonts/barlow-semi-condensed-v5-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/barlow-semi-condensed-v5-latin-regular.woff2") format("woff2"), url("../fonts/barlow-semi-condensed-v5-latin-regular.woff") format("woff"), url("../fonts/barlow-semi-condensed-v5-latin-regular.ttf") format("truetype"); }
+
+/* barlow-semi-condensed-300 - latin */
+@font-face {
+  font-family: 'Barlow Semi Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/barlow-semi-condensed-v5-latin-300.eot");
+  src: local("Barlow Semi Condensed Light"), local("BarlowSemiCondensed-Light"), url("../fonts/barlow-semi-condensed-v5-latin-300.eot?#iefix") format("embedded-opentype"), url("../fonts/barlow-semi-condensed-v5-latin-300.woff2") format("woff2"), url("../fonts/barlow-semi-condensed-v5-latin-300.woff") format("woff"), url("../fonts/barlow-semi-condensed-v5-latin-300.ttf") format("truetype"); }
 
 /* barlow-semi-condensed-600 - latin */
 @font-face {
@@ -43,7 +60,6 @@
   font-style: normal;
   font-weight: 600;
   src: url("../fonts/barlow-semi-condensed-v5-latin-600.eot");
-  /* IE9 Compat Modes */
   src: local("Barlow Semi Condensed SemiBold"), local("BarlowSemiCondensed-SemiBold"), url("../fonts/barlow-semi-condensed-v5-latin-600.eot?#iefix") format("embedded-opentype"), url("../fonts/barlow-semi-condensed-v5-latin-600.woff2") format("woff2"), url("../fonts/barlow-semi-condensed-v5-latin-600.woff") format("woff"), url("../fonts/barlow-semi-condensed-v5-latin-600.ttf") format("truetype"); }
 
 /* cormorant-garamond-regular - latin */
@@ -52,8 +68,15 @@
   font-style: normal;
   font-weight: 400;
   src: url("../fonts/cormorant-garamond-v7-latin-regular.eot");
-  /* IE9 Compat Modes */
   src: local("Cormorant Garamond Regular"), local("CormorantGaramond-Regular"), url("../fonts/cormorant-garamond-v7-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/cormorant-garamond-v7-latin-regular.woff2") format("woff2"), url("../fonts/cormorant-garamond-v7-latin-regular.woff") format("woff"), url("../fonts/cormorant-garamond-v7-latin-regular.ttf") format("truetype"); }
+
+/* cormorant-garamond-300 - latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/cormorant-garamond-v7-latin-300.eot");
+  src: local("Cormorant Garamond Light"), local("CormorantGaramond-Light"), url("../fonts/cormorant-garamond-v7-latin-300.eot?#iefix") format("embedded-opentype"), url("../fonts/cormorant-garamond-v7-latin-300.woff2") format("woff2"), url("../fonts/cormorant-garamond-v7-latin-300.woff") format("woff"), url("../fonts/cormorant-garamond-v7-latin-300.ttf") format("truetype"); }
 
 /* cormorant-garamond-700 - latin */
 @font-face {
@@ -61,5 +84,4 @@
   font-style: normal;
   font-weight: 700;
   src: url("../fonts/cormorant-garamond-v7-latin-700.eot");
-  /* IE9 Compat Modes */
   src: local("Cormorant Garamond Bold"), local("CormorantGaramond-Bold"), url("../fonts/cormorant-garamond-v7-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/cormorant-garamond-v7-latin-700.woff2") format("woff2"), url("../fonts/cormorant-garamond-v7-latin-700.woff") format("woff"), url("../fonts/cormorant-garamond-v7-latin-700.ttf") format("truetype"); }
