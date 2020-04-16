@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* _variables.scss */
+
+$G-color-primary: #005ad5;
+$G-color-primary-dark: #004bba;
+$G-color-secondary: #ffb500;
+$G-time: 0.5s;
+$G-time-slow: 2s;
+$header-size: (
+    default: 120px,
+    mobile: 80px
+);
+$ham-size: (
+    default: 60px,
+    mobile: 50px
+);
+$breakpoints: (
+    desktop: 1860px,
+    desktop-l: 1559px,
+    desktop-m: 1365px,
+    desktop-s: 1280px,
+    tablet: 1160px,
+    tablet-l: 1023px,
+    tablet-s: 989px,
+    mobile: 767px,
+    mobile-l: 600px,
+    mobile-s: 500px
+);

@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* _mixins.scss */
+
+@mixin clearfix {
+    &:after {
+        display: block;
+        clear: both;
+        content: '';
+    }
+}
+
+@mixin circle($size, $bg: #fff) {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    background-color: $bg;
+}
+
+@mixin position($pos, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $pos;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin center($pos) {
+    position: $pos;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin vhCenter($pos: null, $align: null, $vh: null) {
+    position: $pos;
+    #{$align}: 0;
+    #{$vh}: 50%;
+    transform: if($vh == top, translateY(-50%), translateX(-50%));
+}
+
+@mixin underbar($w: 100%, $h: 2px, $color: #fff, $ani: null, $t: $G-time) {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: $w;
+    height: $h;
+    background: $color;
+    content: '';
+    animation: $ani $t;
+}
+
+@mixin boxCol($num) {
+    float: left;
+    width: 100% / $num;
+    height: 100%;
+}
+
+@mixin circleText {
+    display: block;
+    z-index: -10;
+    width: 383px;
+    height: 383px;
+    content: url(../images/common/img_text-animation.png);
+    animation: rotate360 15s linear infinite;
+}
+
+@mixin media($breakpoint, $minmax:max) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $bp: map-get($breakpoints, $breakpoint);
+        @media screen and (#{$minmax}-width: #{$bp}) {
+            @content;
+        }
+    }
+    @else {
+        @warn #{$breakpoint};
+    }
+}
