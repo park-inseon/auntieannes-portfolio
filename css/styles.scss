@@ -1,13 +1,8 @@
 @charset "utf-8";
 @import "fonts.css";
+@import "common/_variables.scss";
 @import "common/_reset.scss";
 @import "common/_mixins.scss";
-
-$G-color-primary: #005ad5;
-$G-color-primary-dark: #004bba;
-$G-color-secondary: #ffb500;
-$G-time: 0.5s;
-$G-time-slow: 2s;
 
 @keyframes fullWidth {
     0% { width: 0; }
@@ -51,7 +46,7 @@ $G-time-slow: 2s;
 }
 
 body {
-//    overflow: hidden;
+    overflow-x: hidden;
     font-size: 17px;
     font-family: 'Cormorant Garamond', 'Noto Sans KR';
     color: #000;
@@ -63,14 +58,17 @@ body {
 
 /* header */
 .header {
-    $G-header-height: 120px !global;
-    
     position: fixed;
     z-index: 20;
     width: 100%;
-    height: $G-header-height;
-    line-height: 120px;
+    height: map-get($header-size, default);
+    line-height: map-get($header-size, default);
     color: #fff;
+    
+    @include media(mobile) {
+        height: map-get($header-size, mobile);
+        line-height: map-get($header-size, mobile);
+    }
     
     &__container {
         @include clearfix;
@@ -81,7 +79,7 @@ body {
         padding: 0 50px;
         box-sizing: border-box;
         
-        @media screen and (max-width: 1860px) {
+        @include media(desktop) {
             padding: 0 30px;
         }
     }
@@ -95,13 +93,17 @@ body {
         float: right;
         margin-right: 60px;
         
-        @media screen and (max-width: 1860px) {
+        @include media(desktop) {
             margin-right: 10px;
         }
     }
     
     &__gnb {
         @include clearfix;
+        
+        @include media(mobile) {
+            display: none;
+        }
     }
     
     &__lnb {
@@ -117,18 +119,30 @@ body {
     &__ham {
         float: right;
         z-index: 10;
-        margin-top: 30px;
+        margin-top: map-get($ham-size, default) / 2;
+        
+        @include media(mobile) {
+            margin-top: map-get($ham-size, mobile) / 2;
+        }
     }
 }
 
 .logo {
-   &__img {
+    &__img {
         vertical-align: middle;
-    } 
+        
+        @include media(tablet-s) {
+            width: 200px;
+        }
+        
+        &--mo {
+            width: 165px;
+        }
+    }
 }
 
 .gnb {
-    @media screen and (max-width: 989px) {
+    @include media(tablet-s) {
         font-size: 15px;
     }
     
@@ -140,11 +154,11 @@ body {
         font-family: 'Noto Sans KR';
         cursor: pointer;
         
-        @media screen and (max-width: 1860px) {
+        @include media(desktop) {
             padding: 0 20px;
         }
         
-        @media screen and (max-width: 989px) {
+        @include media(tablet-s) {
             padding: 0 10px;
         }
 
@@ -183,14 +197,18 @@ body {
 }
 
 .ham {
-    @include circle(60px, 60px);
-    
+    @include circle(map-get($ham-size, default));
+    @include media(mobile) {
+        @include circle(map-get($ham-size, mobile));
+    }
+        
     display: block;
     position: relative;
     overflow: hidden;
+    box-shadow: 4px 0px 13px 0px rgba(#000,0.08);
     transform: rotateZ(0);
     transition: $G-time;
-        
+    
     &--active {
         background-color: $G-color-secondary;
         transform: rotateZ(180deg);
@@ -225,6 +243,10 @@ body {
         height: 2px;
         background-color: #004bba;
         transition: $G-time 0.1s ease-out;
+        
+        @include media(mobile) {
+            width: 17px;
+        }
 
         &:first-child {
             margin-top: -7px;
@@ -235,7 +257,7 @@ body {
     }
 }
 
-.full-nav {
+.fullnav {
     $this: &;
     
     display: none;
@@ -248,11 +270,11 @@ body {
     font-size: 20px;
     line-height: normal;
         
-    @media screen and (max-width: 1365px) {
+    @include media(desktop-m) {
         font-size: 18px;
     }
     
-    @media screen and (max-width: 1160px) {
+    @include media(tablet-l) {
         font-size: 14px;
     }
 
@@ -260,10 +282,30 @@ body {
         display: block;
     }
     
+    &__container {
+        @include media(tablet-s) {
+            padding: 20px;
+        }
+    }
+    
+    &__logo {
+        display: none;
+        padding-bottom: 20px;
+        
+        @include media(tablet-s) {
+            display: block;
+        }
+    }
+    
     &__menu {
         @include clearfix;
 
         padding-right: 23%;
+        
+        
+        @include media(tablet-s) {
+            padding-right: 0;
+        }
     }
     
     &__content {
@@ -273,31 +315,62 @@ body {
         padding: 80px;
         border-bottom: 1px solid rgba(#fff, 0.1);
         box-sizing: border-box;
-        transition: $G-time;
+        transition: padding $G-time;
         
-        @media screen and (max-width: 1860px) {
+        @include media(desktop) {
             padding: 80px 40px;
         }
         
-        @media screen and (max-width: 1365px) {
+        @include media(desktop-m) {
             padding: 50px 30px;
         }
         
-        @media screen and (max-width: 1160px) {
+        @include media(tablet-l) {
             padding: 30px 15px;
         }
-
-        &:not(:nth-child(3n)) {
-            border-right: 1px solid rgba(#fff, 0.1);
-        }        
-        &:hover {
-            background: $G-color-secondary;
-            #{$this}__menu-tit {            
-                position: relative;
-                &:after {
-                    @include underbar($ani: fullWidth);
+        
+        @include media(tablet-s) {
+            float: none;
+            overflow: hidden;
+            width: 100%;
+            height: auto;
+            padding: 0;
+            
+            &.--active {
+                #{$this}__list {
+                    height: auto;
+                }
+                
+                #{$this}__menu-tit {
+                    color: $G-color-secondary;
+                }                
+            }
+        }
+        
+        @include media(tablet-s, min) {
+            &:not(:nth-child(3n)) {
+                border-right: 1px solid rgba(#fff, 0.1);
+            }   
+            
+            &:hover {
+                background: $G-color-secondary;
+                #{$this}__menu-tit {            
+                    position: relative;
+                    &:after {
+                        @include underbar($ani: fullWidth);
+                    }
+                }
+                #{$this}__item {
+                    opacity: 0.6;
+                    transition: $G-time;
+                    &:hover {
+                        opacity: 1;
+                    }
                 }
             }
+        }
+        
+        &:hover {
             #{$this}__item {
                 opacity: 0.6;
                 transition: $G-time;
@@ -308,31 +381,131 @@ body {
         }
     }
     
+    &__franchise {
+        @include media(tablet-s) {
+            border-bottom: none;
+        }
+    }
+    
+    &__find {
+        @include media(tablet-s) {
+            display: none;
+        }
+    }
+    
     &__menu-tit {
         display: inline-block;
         position: relative;
         font-size: 50px;
         margin-bottom: 25px;
+        cursor: text;
         
-        @media screen and (max-width: 1365px) {
+        @include media(desktop-m) {
             margin-bottom: 15px;
             font-size: 42px;
         }
                 
-        @media screen and (max-width: 1160px) {
-            margin-bottom: 5px;
+        @include media(tablet-l) {
+            margin-bottom: 10px;        
+        }
+        
+        @include media(tablet-s) {
+            margin: 10px 0;
+            font-size: 50px;
+            cursor: default;
+        }
+        
+        @include media(mobile-l) {
+            font-weight: 700;
+            font-size: 34px;
+        }
+    }
+    
+    &__auntie {
+        pointer-events: none;
+        
+        @include media(tablet-s) {
             font-size: 32px;
+            pointer-events: auto;
         }
     }
     
     &__list {
         font-family: 'Noto Sans KR';
+        
+        @include media(tablet-s) {
+            height: 0;
+            font-size: 22px;
+            
+            &.multicol {
+                column-count: 1;
+            }
+        }
+        
+        @include media(mobile-l) {
+            font-size: 13px;
+        }
     }
     
     &__item {
         padding: 5px 0;
+        
+        @include media(tablet-s) {
+            display: inline-block;
+            padding-right: 25px;
+        }
+        
+        @include media(mobile-l) {
+            padding-right: 15px;
+        }
     }
     
+    &__quickmenu {
+        display: none;
+        width: 100%;
+        margin: 15px 0;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 18px;
+        text-align: center;
+        
+        @include media(tablet-s) {
+            display: table;
+        }
+        
+        &:hover {
+            #{$this}__quickitem {
+                opacity: 0.6;
+                transition: $G-time;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__quickitem {
+        display: table-cell;
+        width: 25%;
+        
+        &:not(:last-child) {
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @include media(mobile-l) {
+            font-size: 13px;
+        }
+    }
+    
+    &__quicklink {
+        display: block;
+        padding: 15px;
+    }
+
+    &__quickicon {
+        display: block;
+        margin: 0 auto 5px;
+    }
+
     &__side {
         position: absolute;
         top: 0;
@@ -341,6 +514,12 @@ body {
         height: 100%;
         background: url(../images/main/bg_nav.jpg) no-repeat 50% 0;
         font-weight: 300;
+        
+        @include media(tablet-s) {
+            position: static;
+            width: 100%;
+            background: none;
+        }
     }
     
     &__info {
@@ -349,16 +528,28 @@ body {
         left: 50px;
         padding-right: 20px;
         line-height: 1.8;
+        
+        @include media(tablet-s) {
+            position: static;
+        }
     }
     
     &__address {
         font-size: 16px;
         font-family: 'Noto Sans KR';
+        
+        @include media(mobile-l) {
+            font-size: 12px;
+        }
     }
     
     &__contact {
         font-size: 18px;
         font-family: 'Barlow';
+        
+        @include media(mobile-l) {
+            font-size: 12px;
+        }
     }
     
     &__info-tit {
@@ -366,13 +557,37 @@ body {
         font-size: 27px;
         font-family: 'Cormorant Garamond';
 
+        @include media(tablet-s) {
+            font-size: 22px;
+        }
+        
+        @include media(mobile-l) {
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
         &:after {
             @include underbar(40px, 1px, rgba(#fff, 0.7));
+            
+            @include media(tablet-s) {
+                top: 50%;
+                left: 100%;
+                width: 1px;
+                height: 15px;
+                margin-left: 15px;
+                transform: translateY(-50%);
+            }
         }
     }
     
     &__info-desc {
         margin: 0.85em 0;
+        
+        @include media(tablet-s) {
+            display: inline-block;
+            margin: 0.25em 0 0.25em 30px;
+            vertical-align: top;
+        }
     }
     
     &__sns {
@@ -391,6 +606,12 @@ body {
 
         &:first-child {
             margin-left: 0;
+        }
+    }
+    
+    &__img {
+        @include media(mobile-l) {
+            width: 32px;
         }
     }
 }
@@ -413,7 +634,7 @@ body {
        
         margin-right: 4%;
         
-        @media screen and (max-width: 1559px) {
+        @include media(desktop-l) {
             margin-right: 2%;
         }
     }
@@ -442,11 +663,11 @@ body {
     &__product {
         @include center(absolute);
         
-        @media screen and (max-width: 1860px) {
+        @include media(desktop) {
             max-width: 300px;
         }
         
-        @media screen and (max-width: 1023px) {
+        @include media(tablet) {
             max-width: 200px;
         }
     }
@@ -478,11 +699,11 @@ body {
         font-weight: 700;
         color: #fff;
         
-        @media screen and (max-width: 1860px) {
+        @include media(desktop) {
             padding: 0 100px 0 150px;
         }
         
-        @media screen and (max-width: 1023px) {
+        @include media(tablet) {
             padding: 0 50px 0 120px;
         }
     }
@@ -491,7 +712,7 @@ body {
         font-size: 28px;
         letter-spacing: normal;
         
-        @media screen and (max-width: 1280px) {
+        @include media(desktop-s) {
             font-size: 18px;
         }
     }
@@ -502,11 +723,11 @@ body {
         letter-spacing: normal;
         transition: $G-time;
         
-        @media screen and (max-width: 1860px) {
+        @include media(desktop) {
             font-size: 67px;
         }
         
-        @media screen and (max-width: 1280px) {
+        @include media(desktop-s) {
             font-size: 56px;
         }
     }
@@ -518,7 +739,7 @@ body {
         font-family: 'Noto Sans KR';
         color: $G-color-secondary;    
         
-        @media screen and (max-width: 1280px) {
+        @include media(desktop-s) {
             font-size: 14px;
         }
     }
@@ -530,7 +751,7 @@ body {
     
     &__page {
         @include center(absolute);
-        @include circle(60px, 60px, $G-color-primary);
+        @include circle(60px, $G-color-primary);
 
         top: 0;
         z-index: 10;
@@ -564,7 +785,7 @@ body {
     $this: &;
     
     &__icon {
-        @include circle(50px, 50px, rgba(227,227,227,0.5));
+        @include circle(50px, rgba(227,227,227,0.5));
         
         display: inline-block;
         position: relative;
@@ -572,7 +793,7 @@ body {
         animation-duration: $G-time;
         animation-fill-mode: forwards;
         
-        @media screen and (max-width: 1280px) {
+        @include media(desktop-s) {
             width: 34px;
             height: 34px;
         }        
@@ -587,7 +808,7 @@ body {
             background-size: cover;
             content: '';
             
-            @media screen and (max-width: 1280px) {
+            @include media(desktop-s) {
                 width: 45px;
                 height: 45px;
             }    
@@ -645,7 +866,7 @@ body {
     left: 4%;
     color: #fff;
     
-    @media screen and (max-width: 1559px) {
+    @include media(desktop-l) {
         left: 2%;
     }
 
@@ -654,7 +875,7 @@ body {
     }
     
     &__link {
-        @include circle(9px, 9px, transparent);
+        @include circle(9px, transparent);
 
         display: inline-block;
         margin-right: 15px;
@@ -698,7 +919,7 @@ body {
     }
     
     &__icon {
-        @include circle(34px, 34px, $bg: $G-color-primary-dark);
+        @include circle(34px, $bg: $G-color-primary-dark);
         
         padding: 13px;
         box-shadow: 10px 0px 7px 0px rgba(0,0,0,0.08);
@@ -711,12 +932,21 @@ body {
 }
 
 .title {
-    font: {
-        weight: 700;
-        size: 60px;
-//        family: 'Cormorant Garamond';
-    }
+    font-weight: 700;
+    font-size: 60px;
     color: $G-color-primary;
+    
+    @include media(desktop-m) {
+        font-size: 52px;
+    }    
+    
+    @include media(tablet-s) {
+        font-size: 44px;
+    }
+    
+    @include media(mobile) {
+        font-size: 34px;
+    }
 }
 
 .menu {
@@ -726,8 +956,6 @@ body {
     position: relative;
     overflow: hidden;
     height: 100vh;
-    padding-top: $G-header-height;
-    box-sizing: border-box;
     
     &:before {
         @include circleText;
@@ -738,26 +966,39 @@ body {
     }
     
     &__container {
-        position: relative;
         width: 100%;
         height: 100%;
-        max-width: 1660px;
-        margin: 0 auto;
-//        padding: 0 60px; //미디어쿼리
+        padding-top: map-get($header-size, default);
         box-sizing: border-box;
+        
+        @include media(mobile) {
+            padding-top: map-get($header-size, mobile);
+        }
         
         &:before {
             @include center(absolute);
             
             display: block;
             width: 100%;
-            margin-top: -60px;
             font-weight: 700;
             font-size: 180px;
             color: rgba(#000, 0.03);
             text-align: center;
             content: "Auntie Anne's";
         }
+    }
+        
+    &__slideshow {
+        width: 100%;
+        height: 100%;
+        max-width: 1660px;
+        margin: 0 auto;   
+    }
+    
+    &__slider {
+        position: relative;
+        width: 100%;
+        height: 80%;
     }
     
     &__tit {
@@ -792,7 +1033,9 @@ body {
     &__list {
         @include vhCenter(absolute, left, top);
         
-        padding: inherit;
+        @include media(desktop) {
+            padding-right: 60px;
+        }
         
         &:nth-of-type(2) {
             left: 200%;
@@ -837,19 +1080,34 @@ body {
     
     &__name {
         font-size: 30px;
+        
+        @include media(tablet-l) {
+            font-size: 25px;
+        }
+        
+        @include media(mobile-s) {
+            font-size: 20px;
+        }
     }
     
     &__desc {
         margin: 0.85em 0;
         font-size: 17px;
         color: #777;
+        
+        @include media(tablet-l) {
+            font-size: 15px;
+        }
+                
+        @include media(mobile-s) {
+            font-size: 14px;
+        }
     }
     
     &__control {
         position: absolute;
         top: 50%;
-        left: 100%;
-        transform: translateY(-50%);
+        right: 60px;
     }
 }
 
@@ -860,29 +1118,39 @@ body {
     color: #fff;
     text-align: center;
     
+    @include media(mobile) {
+        height: 100%;
+    }
+    
     &__content {
         @include boxCol(3);
         
-        display: table;
+        position: relative;
+        
+        @include media(mobile) {
+            float: none;
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto 20px;
+        }    
     }
     
-    &__event {
-        background: url(../images/main/bg_event.jpg) no-repeat;
-    }
-    
-    &__store {
-        background: url(../images/main/bg_store.jpg) no-repeat;
-    }
-    
-    &__delivery {
-        background: url(../images/main/bg_delivery.jpg) no-repeat;
-    }
-    
-    &__link {
-        display: table;
+    &__bg {
+        display: block;
         width: 100%;
         height: 100%;
+    }
+
+    &__link {
+        display: table;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 25px;
         transition: 0.3s;
+        box-sizing: border-box;
         
         &:hover {
             background: rgba(#000, 0.3);
@@ -891,18 +1159,25 @@ body {
     
     &__txt {
         display: table-cell;
-        height: 100%;
         vertical-align: middle;
     }
     
     &__tit {
         font-size: 46px;
+        
+        @include media(tablet-s) {
+            font-size: 38px;
+        }
     }
     
     &__desc {
         margin: 0.85em 0;
         font-size: 18px;
         color: #e5e5e5;
+        
+        @include media(tablet-s) {
+            font-size: 15px;
+        }
     }
 }
 
@@ -914,12 +1189,17 @@ body {
         height: 100%;
         max-width: 1415px;
         margin: 0 auto;        
-        padding: 0 20px;
+        padding: 80px 20px;
+        
     }
     
     &__col {
         display: table-cell;
         vertical-align: middle;
+        
+        @include media(mobile) {
+            display: block;
+        }
     }
     
     &__tit {
@@ -928,6 +1208,10 @@ body {
     
     &__txt {
         width: 30%;
+        
+        @include media(mobile) {
+            width: 100%;
+        }
     }
     
     &__desc {
@@ -937,7 +1221,12 @@ body {
     
     &__bg {
         position: relative;
+        padding-left: 20px;
         margin-right: 80px;
+        
+        @include media(tablet-s) {
+            margin-right: 0;
+        }
         
         &:before {
             @include circleText;
@@ -960,6 +1249,11 @@ body {
     &__img {
         display: block;
         width: 100%;
+        
+        @include media(tablet-s) {
+            max-width: 500px;
+            margin-left: auto;
+        }
     }
 }
 
