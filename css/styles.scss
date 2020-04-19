@@ -1159,7 +1159,8 @@ body {
         position: relative;        
         
         &:nth-child(2n) {
-            margin: 18% 50px 0 -50px;
+            margin-top: 18%;
+            right: 100px;
             
             #{$this}__img {
                 animation-name: rotateLeft;
