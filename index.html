@@ -14,8 +14,8 @@
         <meta property="og:url" content=""/>        
         <title>앤티앤스 프레즐</title>
         <!-- link -->
+        <link rel="stylesheet" href="glider/glider.css"/> 
         <link rel="stylesheet" href="css/styles.css"/>
-        <link rel="stylesheet" href="glider/glider.css"/>  
     </head>
     <body>
         <header class="header">
@@ -139,7 +139,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="fullnav__content active">
+                        <li class="fullnav__content">
                             <span class="fullnav__menu-tit">Menu</span>
                             <ul class="fullnav__list multicol">
                                 <li class="fullnav__item">
@@ -285,53 +285,74 @@
             </nav>
         </header>
         <main>
-            <aside class="scrollnav scrollnav--color-bk"> <!-- 짝수 페이지일 때 블랙 -->
-                <ul>
+            <div class="popup">
+                <div class="popup__content">
+                    <a class="popup__link" href="">
+                        <img class="popup__img" src="images/img_popup.png" alt="3월 18일, 100% 유기농 녹차와 부드러운 크림치즈를 담은 봄 시즌 메뉴 녹차 크림치즈 스틱 출시.">
+                    </a>
+                    <div class="popup__control">
+                        <button class="popup__btn popup__today-close" type="button">
+                            <span class="popup__close-txt">오늘 하루 다시 보지 않기</span>
+                        </button>
+                        <button class="popup__btn popup__close" type="button">
+                            <img src="images/common/icon_btn-close.png" alt="팝업창 닫기"/>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <aside class="scroll-to-top">
+                <button class="scroll-to-top__btn" type="button">
+                    <span class="scroll-to-top__txt">TOP</span>
+                </button>
+            </aside>
+            <aside id="scrollNav" class="scrollnav"> <!-- 짝수 페이지일 때 블랙 -->
+                <ul class="scrollnav__list">
                     <li class="scrollnav__item">
-                        <a class="scrollnav__link active" href=""></a>
+                        <a data-idx="0" class="scrollnav__link active" href=""></a>
                         <span class="scrollnav__txt">MAIN</span>
                     </li>
                     <li class="scrollnav__item">
-                        <a class="scrollnav__link" href=""></a>
+                        <a data-idx="1" class="scrollnav__link" href=""></a>
                         <span class="scrollnav__txt">MENU</span>
                     </li>
                     <li class="scrollnav__item">
-                        <a class="scrollnav__link" href=""></a>
+                        <a data-idx="2" class="scrollnav__link" href=""></a>
                         <span class="scrollnav__txt">COMMUNITY</span>
                     </li>
                     <li class="scrollnav__item">
-                        <a class="scrollnav__link" href=""></a>
+                        <a data-idx="3" class="scrollnav__link" href=""></a>
                         <span class="scrollnav__txt">FRANCHISE</span>
                     </li>
                 </ul>
             </aside>
-            <section class="visual">
-                <div id="visualSlide" class="visual__slideshow">
-                    <ul class="visual__slider">
-                        <li class="visual__slide active">
-                            <div class="visual__product">
+            <section class="main container">
+                <div class="main__slideshow">
+                    <ul class="main__slider">
+                        <li class="main__slide active">
+                            <div class="main__product">
                                 <div> <!-- 애니메이션 충돌 방지 -->
-                                    <img class="visual__item img-ani" src="images/main/img_main01.png"/>
+                                    <img class="main__item img-ani" src="images/main/img_main01.png"/>
                                 </div>
                             </div>
-                            <div class="visual__bg">
-                                <img class="visual__img" src="images/main/bg_main01.jpg" alt=""/>
+                            <div class="main__bg">
+                                <img class="main__img img-pc" src="images/main/bg_main01.jpg" alt=""/>
+                                <img class="main__img img-mo" src="images/main/bg_main01_mo.jpg" alt=""/>
                             </div>
-                            <div class="visual__content">
-                                <div class="visual__txt">
-                                    <p class="txt-hidd">
-                                        <span class="visual__subtit txt-ani">Auntie Anne's</span>
+                            <div class="main__content">
+                                <div class="main__txt">
+                                    <p class="txt-hidden">
+                                        <span lang="en" class="main__subtit txt-ani">Auntie Anne's</span>
                                     </p>
-                                    <p class="visual__tit txt-hidd">
-                                        <span class="txt-ani">Season Menu,</span>
+                                    <p class="main__tit txt-hidden">
+                                        <span lang="en" class="txt-ani">Season Menu,</span>
                                     </p>
-                                    <p class="visual__tit txt-hidd">
-                                        <span class="txt-ani">Green Tea</span>
+                                    <p class="main__tit txt-hidden">
+                                        <span lang="en" class="txt-ani">Green Tea</span>
                                     </p>
-                                    <p class="visual__tag txt-hidd">
+                                    <p class="main__tag txt-hidden">
                                         <span class="txt-ani">#녹차 크림치즈 스틱 #초록초록한 #봄 신메뉴</span>
                                     </p>
-                                    <div class="visual__more">
+                                    <div class="main__more">
                                         <a class="more-btn more-btn--theme-wt" href="">
                                             <span class="more-btn__icon"></span>
                                             <span class="more-btn__txt">DISCOVER MORE</span>
@@ -340,30 +361,31 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="visual__slide">
-                            <div class="visual__product">
+                        <li class="main__slide">
+                            <div class="main__product">
                                 <div>
-                                    <img class="visual__item"  src="images/main/img_main02.png"/>
+                                    <img class="main__item"  src="images/main/img_main02.png"/>
                                 </div>
                             </div>
-                            <div class="visual__bg">
-                                <img class="visual__img" src="images/main/bg_main02.png" alt="앤티앤스 굿즈 이벤트"/>
+                            <div class="main__bg">
+                                <img class="main__img img-pc" src="images/main/bg_main02.png" alt="앤티앤스 굿즈 이벤트"/>
+                                <img class="main__img img-mo" src="images/main/bg_main02_mo.png" alt="앤티앤스 굿즈 이벤트"/>
                             </div>
-                            <div class="visual__content">
-                                <div class="visual__txt">
-                                    <p class="txt-hidd">
-                                        <span class="visual__subtit txt-ani">Special event</span>
+                            <div class="main__content">
+                                <div class="main__txt">
+                                    <p class="txt-hidden">
+                                        <span lang="en" class="main__subtit txt-ani">Special event</span>
                                     </p>
-                                    <p class="visual__tit txt-hidd">
+                                    <p class="main__tit txt-hidden">
                                         <span class="txt-ani">앤티앤스</span>
                                     </p>
-                                   <p class="visual__tit txt-hidd">
+                                   <p class="main__tit txt-hidden">
                                         <span class="txt-ani">굿즈 이벤트</span>
                                     </p>
-                                    <p class="visual__tag txt-hidd">
+                                    <p class="main__tag txt-hidden">
                                         <span class="txt-ani">#앤티앤스 이벤트 #귀염뽀짝 #앤티앤스 굿즈</span>
                                     </p>
-                                    <div class="visual__more">
+                                    <div class="main__more">
                                         <a class="more-btn more-btn--theme-wt" href="">
                                             <span class="more-btn__icon"></span>
                                             <span class="more-btn__txt">DISCOVER MORE</span>
@@ -372,30 +394,31 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="visual__slide">
-                            <div class="visual__product">
+                        <li class="main__slide">
+                            <div class="main__product">
                                 <div>
-                                    <img class="visual__item"  src="images/main/img_main03.png"/>
+                                    <img class="main__item"  src="images/main/img_main03.png"/>
                                 </div>
                             </div>
-                            <div class="visual__bg">
-                                <img class="visual__img" src="images/main/bg_main03.jpg" alt=""/>
+                            <div class="main__bg">
+                                <img class="main__img img-pc" src="images/main/bg_main03.jpg" alt=""/>
+                                <img class="main__img img-mo" src="images/main/bg_main03_mo.png" alt=""/>
                             </div>
-                            <div class="visual__content">
-                                <div class="visual__txt">
-                                    <p class="txt-hidd">
-                                        <span class="visual__subtit txt-ani">Franchise</span>
+                            <div class="main__content">
+                                <div class="main__txt">
+                                    <p class="txt-hidden">
+                                        <span lang="en" class="main__subtit txt-ani">Franchise</span>
                                     </p>
-                                    <p class="visual__tit txt-hidd">
-                                        <span class="txt-ani">With</span>
+                                    <p class="main__tit txt-hidden">
+                                        <span lang="en" class="txt-ani">With</span>
                                     </p>
-                                    <p class="visual__tit txt-hidd">
-                                        <span class="txt-ani">Auntie Anne's</span>
+                                    <p class="main__tit txt-hidden">
+                                        <span lang="en" class="txt-ani">Auntie Anne's</span>
                                     </p>
-                                    <p class="visual__tag txt-hidd">
+                                    <p class="main__tag txt-hidden">
                                         <span class="txt-ani">앤티앤스 프레즐과 함께 할 가맹점 점주님을 모집합니다.</span>
                                     </p>
-                                    <div class="visual__more">
+                                    <div class="main__more">
                                         <a class="more-btn more-btn--theme-wt" href="">
                                             <span class="more-btn__icon"></span>
                                             <span class="more-btn__txt">DISCOVER MORE</span>
@@ -405,21 +428,30 @@
                             </div>
                         </li>
                     </ul>
-                    <div class="visual__control">
-                        <p class="visual__page">
-                            <span class="visual__num">01</span>
+                    <div class="main__control">
+                        <p class="main__page">
+                            <span class="main__num">01</span>
                         </p>
-                        <div class="visual__slide-btn">
-                            <a class="visual__btn --prev" href="">
-                                <img class="visual__btn-img" src="images/common/img_slide-prev.png" alt="이전 슬라이드"/>
+                        <div class="main__slide-btn">
+                            <a class="main__btn prev" href="">
+                                <img class="main__btn-img" src="images/common/img_slide-prev.png" alt="이전 슬라이드"/>
                             </a>
-                            <a class="visual__btn --next" href="">
-                                <img class="visual__btn-img" src="images/common/img_slide-next.png" alt="다음 슬라이드"/>
+                            <a class="main__btn next" href="">
+                                <img class="main__btn-img" src="images/common/img_slide-next.png" alt="다음 슬라이드"/>
                             </a>
                         </div>
                     </div>
+                    <div class="main__mo-control main__mo-pages"></div>
+                    <div class="main__mo-control main__mo-slide-btn">
+                        <button class="main__mo-btn prev" type="button">
+                            <span>&lsaquo;</span>
+                        </button>
+                        <button class="main__mo-btn next" type="button">
+                            <span>&rsaquo;</span>
+                        </button>
+                    </div>
                 </div>
-                <aside class="visual__quickmenu quickmenu">
+                <aside class="main__quickmenu quickmenu">
                     <ul>
                         <li class="quickmenu__item">
                             <a class="quickmenu__link" href="">
@@ -456,7 +488,7 @@
                     </ul>
                 </aside>
             </section>
-            <section class="menu">
+            <section class="menu container">
                 <div class="menu__container">
                     <div class="menu__slideshow">
                         <h2 class="menu__tit title">Auntie Anne's Menu</h2>
@@ -464,7 +496,10 @@
                             <li class="menu__slide">
                                 <div class="menu__item">
                                     <a class="menu__link" href="">
-                                        <img class="menu__img" src="images/main/img_menu01.png" alt="">
+                                        <div class="menu__img-box">
+                                            <img class="menu__img" src="images/main/img_menu01.png" alt="">
+                                            <img class="menu__img menu__img--hover" src="images/main/img_menu01_hover.png" alt="">
+                                        </div>
                                         <div class="menu__txt">
                                             <h3 class="menu__name">아몬드 크림치즈 스틱</h3>
                                             <p class="menu__desc">아몬드 크런치 토핑이 올려진<br>스틱 안에 따뜻한 크림치즈가 듬뿍!<br>부드럽고 달콤한 맛 </p>
@@ -473,7 +508,10 @@
                                 </div>
                                 <div class="menu__item">
                                     <a class="menu__link"  href="">
-                                        <img class="menu__img" src="images/main/img_menu02.png" alt="">
+                                        <div class="menu__img-box">
+                                            <img class="menu__img" src="images/main/img_menu02.png" alt="">
+                                            <img class="menu__img menu__img--hover" src="images/main/img_menu02_hover.png" alt="">
+                                        </div>
                                         <div class="menu__txt">
                                             <h3 class="menu__name">아메리카노</h3>
                                             <p class="menu__desc">신선한 원두의 깊은 풍미가 느껴지는<br>시원한 아메리카노
@@ -483,7 +521,10 @@
                                 </div>
                                 <div class="menu__item">
                                     <a class="menu__link"  href="">
-                                        <img class="menu__img" src="images/main/img_menu03.png" alt="">
+                                        <div class="menu__img-box">
+                                            <img class="menu__img" src="images/main/img_menu03.png" alt="">
+                                            <img class="menu__img menu__img--hover" src="images/main/img_menu03_hover.png" alt="">
+                                        </div>
                                         <div class="menu__txt">
                                             <h3 class="menu__name">오리지널 프레즐</h3>
                                             <p class="menu__desc">프레즐 본래의 맛으로 굵은 정제<br>소금을 뿌려 담백하고 고소한 맛</p>
@@ -494,7 +535,10 @@
                             <li class="menu__slide">
                                 <div class="menu__item">
                                     <a class="menu__link"  href="">
-                                        <img class="menu__img" src="images/main/img_menu04.png" alt="">
+                                        <div class="menu__img-box">
+                                            <img class="menu__img" src="images/main/img_menu04.png" alt="">
+                                            <img class="menu__img menu__img--hover" src="images/main/img_menu04_hover.png" alt="">
+                                        </div>
                                         <div class="menu__txt">
                                             <h3 class="menu__name">페퍼로니 프레즐</h3>
                                             <p class="menu__desc">페퍼로니 햄과 치즈가<br>어우러져 짭쪼릅한 맛</p>
@@ -503,7 +547,10 @@
                                 </div>
                                 <div class="menu__item">
                                     <a class="menu__link"  href="">
-                                        <img class="menu__img" src="images/main/img_menu05.png" alt="">
+                                        <div class="menu__img-box">
+                                            <img class="menu__img" src="images/main/img_menu05.png" alt="">
+                                            <img class="menu__img menu__img--hover" src="images/main/img_menu05_hover.png" alt="">
+                                        </div>
                                         <div class="menu__txt">
                                             <h3 class="menu__name">할라피뇨 치즈 핫도그</h3>
                                             <p class="menu__desc">치즈와 할라피뇨가 어우러져<br>짭짤하고 매콤한 맛</p>
@@ -512,7 +559,10 @@
                                 </div>
                                 <div class="menu__item">
                                     <a class="menu__link"  href="">
-                                        <img class="menu__img" src="images/main/img_menu06.png" alt="">
+                                        <div class="menu__img-box">
+                                            <img class="menu__img" src="images/main/img_menu06.png" alt="">
+                                            <img class="menu__img menu__img--hover" src="images/main/img_menu06_hover.png" alt="">
+                                        </div>
                                         <div class="menu__txt">
                                             <h3 class="menu__name">어니언 스틱</h3>
                                             <p class="menu__desc">Sour Cream&amp;Onion가루를 토핑하여<br>새콤달콤하고 짭쪼릅한 맛의 스틱</p>
@@ -522,13 +572,13 @@
                             </li>
                         </ul>
                     </div>
-                    <button id="menuBtn" class="menu__btn next" type="button">
+                    <button class="menu__btn next" type="button">
                         <img class="menu__btn-img" src="images/common/icon_btn-next.png" alt=""/>
                     </button>
                 </div>
                 <div class="menu__mo-slideshow">
                     <h2 class="menu__tit title">Auntie Anne's Menu</h2>
-                    <div class="glider menu__mo-slider">
+                    <div class="menu__mo-slider">
                         <div class="menu__mo-slide">
                             <div class="menu__mo-item">
                                 <a class="menu__link" href="">
@@ -591,12 +641,13 @@
                             </div>
                         </div>
                     </div>
-                    <div id="menuSlidePage"></div>
+                    <div class="menu__mo-page"></div>
                 </div>
             </section>
-            <section class="community">
+            <section class="community container">
                 <section class="community__event community__content">
-                    <img data-name="event" class="community__bg" src="images/main/bg_event.jpg" alt=""/>
+                    <img data-name="event" class="community__bg img-pc" src="images/main/bg_event.jpg" alt=""/>
+                    <img data-name="event" class="community__bg img-mo" src="images/main/bg_event_mo.jpg" alt=""/>
                     <a class="community__link" href="">
                         <div class="community__txt">
                             <h2 class="community__tit">EVENT</h2>
@@ -605,7 +656,8 @@
                     </a>
                 </section>
                 <section class="community__store community__content">
-                    <img data-name="store" class="community__bg" src="images/main/bg_store.jpg" alt=""/>
+                    <img data-name="store" class="community__bg img-pc" src="images/main/bg_store.jpg" alt=""/>
+                    <img data-name="store" class="community__bg img-mo" src="images/main/bg_store_mo.jpg" alt=""/>
                     <a class="community__link" href="">
                         <div class="community__txt">
                             <h2 class="community__tit">STORE</h2>
@@ -614,7 +666,8 @@
                     </a>
                 </section>
                 <section class="community__delivery community__content">
-                    <img data-name="delivery" class="community__bg" src="images/main/bg_delivery.jpg" alt=""/>
+                    <img data-name="delivery" class="community__bg img-pc" src="images/main/bg_delivery.jpg" alt=""/>
+                    <img data-name="delivery" class="community__bg img-mo" src="images/main/bg_delivery_mo.jpg" alt=""/>
                     <a class="community__link" href="">
                         <div class="community__txt">
                             <h2 class="community__tit">DELIVERY SERVICE</h2>
@@ -623,7 +676,7 @@
                     </a>
                 </section>
             </section>
-            <section class="franchise">
+            <section class="franchise container">
                 <div class="franchise__container">
                     <div class="franchise__txt franchise__col">
                         <h2 class="franchise__tit title">With <br class="franchise__enter">Auntie Anne’s</h2>
@@ -639,7 +692,8 @@
                     </div>
                     <div class="franchise__col">
                         <div class="franchise__bg">
-                            <img class="franchise__img" src="images/main/img_franchise.jpg" alt=""/>
+                            <img class="franchise__img img-pc" src="images/main/img_franchise.jpg" alt=""/>
+                            <img class="franchise__img img-mo" src="images/main/img_franchise_mo.jpg" alt=""/>
                         </div>
                     </div>
                     <div class="franchise__more--mo">
@@ -664,7 +718,7 @@
                     <a class="footer__link">재원푸드 홈페이지</a>
                     <a class="footer__link">채용안내</a>
                 </div>
-                <ul class="sns">
+                <ul class="footer__sns sns">
                     <li class="sns__item">
                         <a href="">
                             <img class="sns__img" src="images/common/icon_sns-facebook.png" alt="페이스북"/>
@@ -686,7 +740,9 @@
                 COPYRIGHT (C) 2020 AUNTIE ANNE'S KOREA, ALL RIGHTS RESERVED.
             </p>
         </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
         <script src="js/script.js"></script>
+        <script src="glider/glider-compat.min.js"></script>
         <script src="glider/glider.min.js"></script>
     </body>
 </html>
