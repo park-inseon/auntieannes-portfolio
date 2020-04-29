@@ -562,7 +562,9 @@ function createGlider() {
     new Glider(document.querySelector('.menu__mo-slider'), {
         slidesToShow: 1,
         dots: document.querySelector('.menu__mo-page'),
-        draggable: (Modernizr.touch) ? true : false,
+//        draggable: (Modernizr.touch) ? true : false,
+        scrollLock: true,
+        scrollLockDelay: 0,
         duration: 2
     });
 }
