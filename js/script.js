@@ -11,14 +11,15 @@ window.onload = function() {
     setTimeout(function(){
         window.scrollTo(0, 0);
     }, 0);
-    
     createGlider();
-
+    
     // 미디어 쿼리 감지
     let mql = window.matchMedia('(max-width:' + mobile + 'px)');
     mql.addListener(mediaQueryCheck);
     mediaQueryCheck(mql);
-    
+};
+
+(function checkCookie(){
     // 쿠키 확인
     if(document.cookie.indexOf('todayClose') > -1) { // 팝업 오늘 안보기
         let popup = document.querySelector('.popup');
@@ -26,7 +27,7 @@ window.onload = function() {
     } else {
         // 팝업 다시 띄우기
     }
-};
+}());
 
 function mediaQueryCheck(e) {
     if(e.matches){ // 모바일        
