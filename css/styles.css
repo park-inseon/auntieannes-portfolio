@@ -57,6 +57,8 @@ body { overflow-x: hidden; font-size: 17px; font-family: 'Cormorant Garamond', '
 
 @media screen and (min-width: 1025px) { body { overflow: hidden; -ms-overflow-style: none; scrollbar-width: none; } }
 
+.touch body { overflow-y: scroll; }
+
 @media screen and (min-width: 1025px) { body::-webkit-scrollbar { display: none; } }
 
 .multicol { column-count: 2; }
@@ -347,6 +349,8 @@ body { overflow-x: hidden; font-size: 17px; font-family: 'Cormorant Garamond', '
 
 @media screen and (max-width: 1024px) { .scrollnav { display: none; } }
 
+.touch .scrollnav { display: none; }
+
 /* main */
 .main { position: relative; height: 100vh; }
 
@@ -565,6 +569,8 @@ body { overflow-x: hidden; font-size: 17px; font-family: 'Cormorant Garamond', '
 
 .menu:before { display: block; z-index: -10; width: 383px; height: 383px; content: url(../images/common/img_text-animation.png); animation: rotate360 15s linear infinite; position: absolute; top: -140px; right: -120px; }
 
+.touch .menu:before { display: none; }
+
 .menu__container { width: 100%; height: 100%; box-sizing: border-box; }
 
 @media screen and (max-width: 1024px) { .menu__container { display: none; padding-top: 80px; } }
@@ -573,7 +579,7 @@ body { overflow-x: hidden; font-size: 17px; font-family: 'Cormorant Garamond', '
 
 .menu__slideshow { position: relative; overflow: hidden; width: 100%; height: 100%; max-width: 1600px; margin: 0 auto; padding-top: 120px; box-sizing: border-box; }
 
-.menu__slider { position: relative; width: 100%; height: 90%; transition: left 0.5s ease-in-out; }
+.menu__slider { position: relative; left: 0; width: 100%; height: 90%; transition: left 0.5s ease-in-out; }
 
 .menu__slide { position: absolute; left: 0; width: 100%; height: 100%; box-sizing: border-box; }
 
@@ -732,6 +738,8 @@ body { overflow-x: hidden; font-size: 17px; font-family: 'Cormorant Garamond', '
 @media screen and (max-width: 1024px) { .franchise__bg { margin: 0 auto; padding: 0; } }
 
 .franchise__bg:before { display: block; z-index: -10; width: 383px; height: 383px; content: url(../images/common/img_text-animation.png); animation: rotate360 15s linear infinite; position: absolute; top: -130px; left: -100px; }
+
+.touch .franchise__bg:before { display: none; }
 
 .franchise__bg:after { position: absolute; right: -80px; bottom: -45px; display: block; z-index: -10; width: 55%; height: 85%; background: #005ad5; content: ''; animation: moveBox 2s ease-out; transition: bottom 2s; }
 
