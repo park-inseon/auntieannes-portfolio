@@ -1811,6 +1811,7 @@ body::-webkit-scrollbar { //크롬, 사파리
         padding: 25px;
         transition: 0.3s;
         box-sizing: border-box;
+        table-layout: fixed;
         
         .touch & {
             background: rgba(#000, 0.3);
