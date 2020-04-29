@@ -31,12 +31,12 @@
     transform: translate(-50%, -50%);
 }
 
-@mixin vhCenter($pos: null, $align: null, $vh: null) {
-    position: $pos;
-    #{$align}: 0;
-    #{$vh}: 50%;
-    transform: if($vh == top, translateY(-50%), translateX(-50%));
-}
+//@mixin vhCenter($pos: null, $align: null, $vh: null) {
+//    position: $pos;
+//    #{$align}: 0;
+//    #{$vh}: 50%;
+//    transform: if($vh == top, translateY(-50%), translateX(-50%));
+//}
 
 @mixin underbar($w: 100%, $h: 2px, $color: #fff, $ani: null, $t: $G-time) {
     display: block;

@@ -19,10 +19,13 @@ $breakpoints: (
     desktop-l: 1559px,
     desktop-m: 1365px,
     desktop-s: 1280px,
-    tablet: 1160px,
-    tablet-l: 1023px,
+    desktop-xs: 1160px,
+    tablet: 1024px,
     tablet-s: 989px,
     mobile: 767px,
-    mobile-l: 600px,
-    mobile-s: 500px
+    mobile-xl: 600px,
+    mobile-l: 550px,
+    mobile-m: 500px, //539
+    mobile-s: 380px,
+    mobile-xs: 350px
 );

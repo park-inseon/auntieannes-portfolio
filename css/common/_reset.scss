@@ -19,6 +19,15 @@ button {
     display: block;
     border: 0;
     background: transparent;
+    color: inherit;
     cursor: pointer;
     outline: 0;
+}
+
+:lang(en) {
+    line-height: 1.2;
+    
+    @include media(tablet) {
+        line-height: 1;
+    }
 }
