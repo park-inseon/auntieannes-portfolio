@@ -103,6 +103,12 @@ body::-webkit-scrollbar { //크롬, 사파리
     line-height: map-get($header-size, default);
     color: #fff;
     
+    @include media(tablet, min) {
+        .touch & {
+            background: #fff;
+        }
+    }
+    
     @include media(tablet) {
         background: #fff;
     }
@@ -244,6 +250,10 @@ body::-webkit-scrollbar { //크롬, 사파리
     &__link {
         position: relative;
         transition: color $G-time;
+        
+        .touch & {
+            color: #4b4b4b;
+        }
     }
 }
 

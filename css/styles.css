@@ -70,6 +70,8 @@ body { overflow-x: hidden; font-size: 17px; font-family: 'Cormorant Garamond', '
 /* header */
 .header { position: fixed; z-index: 20; width: 100%; height: 120px; line-height: 120px; color: #fff; }
 
+@media screen and (min-width: 1024px) { .touch .header { background: #fff; } }
+
 @media screen and (max-width: 1024px) { .header { background: #fff; } }
 
 @media screen and (max-width: 767px) { .header { position: absolute; height: 80px; line-height: 80px; background: transparent; } }
@@ -127,6 +129,8 @@ body { overflow-x: hidden; font-size: 17px; font-family: 'Cormorant Garamond', '
 .gnb__item:hover .header__lnb { display: block; }
 
 .gnb__link { position: relative; transition: color 0.5s; }
+
+.touch .gnb__link { color: #4b4b4b; }
 
 .lnb__link { display: block; padding: 8px 15px; font-weight: 400; font-size: 15px; color: #4b4b4b; }
 
