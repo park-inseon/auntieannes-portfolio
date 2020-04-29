@@ -302,7 +302,7 @@ body { overflow-x: hidden; font-size: 17px; font-family: 'Cormorant Garamond', '
 
 .sns__item:first-child { margin-left: 0; }
 
-.popup { display: none; position: fixed; width: 100%; height: 100%; z-index: 100; background: rgba(0, 0, 0, 0.5); }
+.popup { display: block; position: fixed; width: 100%; height: 100%; z-index: 100; background: rgba(0, 0, 0, 0.5); }
 
 .touch .popup { display: none; }
 
