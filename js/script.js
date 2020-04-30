@@ -12,7 +12,15 @@ window.onload = function() {
     setTimeout(function(){
         window.scrollTo(0, 0);
     }, 0);
-    createGlider();
+//    createGlider();
+    
+    $('.menu__mo-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true
+    });
+    $('.slick-dots button').addClass('slick-dot');
     
     // 미디어 쿼리 감지
     mql.addListener(mediaQueryCheck);
@@ -664,7 +672,7 @@ function createGlider() {
     });
 }
 
-(function menuSlideFunc(){ // 메뉴 PC 슬라이드
+(function menuSlideFunc(){ // 메뉴 슬라이드
     const menuSlider = document.querySelector('.menu__slider'),
           menuSlideBtn = document.querySelector('.menu__btn');
     menuSlideBtn.addEventListener('click', handleMenuSlide);
