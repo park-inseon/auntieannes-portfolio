@@ -1813,6 +1813,7 @@ body::-webkit-scrollbar { //크롬, 사파리
         box-sizing: border-box;
         
         .touch & {
+            max-height: 450px;
             background: rgba(#000, 0.3);
         }
         
