@@ -678,7 +678,7 @@ body::-webkit-scrollbar { //크롬, 사파리
 }
 
 .popup {
-    display: block;
+    display: none; //수정
     position: fixed;
     width: 100%;
     height: 100%;
@@ -1392,6 +1392,10 @@ body::-webkit-scrollbar { //크롬, 사파리
         height: 100%;
         box-sizing: border-box;
         
+        @include media(desktop-xs) {
+            padding: 0 20px;
+        }
+        
         @include media(tablet) {
             display: none;
             padding-top: map-get($header-size, mobile);
@@ -1549,6 +1553,55 @@ body::-webkit-scrollbar { //크롬, 사파리
         transform: translateY(-50%);
     }
     
+    &__name {
+        font-size: 30px;
+        
+        @include media(desktop-xs) {
+            font-size: 25px;
+        }
+        
+        @include media(mobile-xl) {
+            font-size: 22px;
+        }
+        
+        @include media(mobile-m) {
+            font-size: 20px;
+        }
+    }
+    
+    &__desc {
+        margin: 0.85em 0;
+        font-size: 17px;
+        color: #777;
+        
+        @include media(desktop-xs) {
+            font-size: 15px;
+        }
+                
+        @include media(mobile-m) {
+            font-size: 14px;
+        }
+    }
+    
+    &__btn {
+        position: absolute;
+        top: 50%;
+        right: 60px;
+        transform: rotateZ(180deg);
+        
+        @include media(desktop-xs) {
+            right: 20px;
+        }
+        
+        &.next {
+            transform: rotateZ(0);
+        }
+    }
+    
+    &__btn-img {
+        display: block;
+    }
+    
     &__mo-slideshow {
         display: none;
         padding-bottom: 50px;
@@ -1609,51 +1662,6 @@ body::-webkit-scrollbar { //크롬, 사파리
         @include media(mobile-s) {
             right: 30px;
         }
-    }
-    
-    &__name {
-        font-size: 30px;
-        
-        @include media(desktop-xs) {
-            font-size: 25px;
-        }
-        
-        @include media(mobile-xl) {
-            font-size: 22px;
-        }
-        
-        @include media(mobile-m) {
-            font-size: 20px;
-        }
-    }
-    
-    &__desc {
-        margin: 0.85em 0;
-        font-size: 17px;
-        color: #777;
-        
-        @include media(desktop-xs) {
-            font-size: 15px;
-        }
-                
-        @include media(mobile-m) {
-            font-size: 14px;
-        }
-    }
-    
-    &__btn {
-        position: absolute;
-        top: 50%;
-        right: 60px;
-        transform: rotateZ(180deg);
-        
-        &.next {
-            transform: rotateZ(0);
-        }
-    }
-    
-    &__btn-img {
-        display: block;
     }
     
     .slick-dots {
@@ -1727,7 +1735,7 @@ body::-webkit-scrollbar { //크롬, 사파리
             max-height: 450px;
             background: rgba(#000, 0.3);
         }
-        
+         
         &:hover {
             background: rgba(#000, 0.3);
         }    
@@ -1735,6 +1743,8 @@ body::-webkit-scrollbar { //크롬, 사파리
 
     &__link {
         display: table-cell;
+        width: 100%;
+        height: 100%;
         vertical-align: middle;
     }
     
@@ -1800,6 +1810,7 @@ body::-webkit-scrollbar { //크롬, 사파리
     
     &__col {
         display: table-cell;
+        height: 100%;
         vertical-align: middle;
         
         @include media(tablet) {
