@@ -1718,7 +1718,7 @@ body::-webkit-scrollbar { //크롬, 사파리
         height: 100%;
     }
 
-    &__txt {
+    &__link {
         display: block;
         position: absolute;
         top: 0;
@@ -1739,12 +1739,14 @@ body::-webkit-scrollbar { //크롬, 사파리
         }    
     }
 
-    &__link {
-        display: block;
-        height: 100%;
+    &__txt {
+        position: absolute;
+        top: 50%;
+        width: 100%;
         padding: 25px;
-        vertical-align: middle;
+        text-align: center;
         box-sizing: border-box;
+        transform: translateY(-50%);
     }
     
     &__tit {

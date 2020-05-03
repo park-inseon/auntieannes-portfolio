@@ -637,13 +637,13 @@ body { overflow-x: hidden; font-size: 17px; font-family: 'Cormorant Garamond', '
 
 .community__bg { display: block; width: 100%; height: 100%; }
 
-.community__txt { display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; transition: 0.3s; }
+.community__link { display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; transition: 0.3s; }
 
-.touch .community__txt { background: rgba(0, 0, 0, 0.3); }
+.touch .community__link { background: rgba(0, 0, 0, 0.3); }
 
-.community__txt:hover { background: rgba(0, 0, 0, 0.3); }
+.community__link:hover { background: rgba(0, 0, 0, 0.3); }
 
-.community__link { display: block; height: 100%; padding: 25px; vertical-align: middle; box-sizing: border-box; }
+.community__txt { position: absolute; top: 50%; width: 100%; padding: 25px; text-align: center; box-sizing: border-box; transform: translateY(-50%); }
 
 .community__tit { font-size: 46px; }
 
