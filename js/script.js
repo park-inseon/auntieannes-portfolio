@@ -7,50 +7,50 @@ let mql= window.matchMedia('(max-width:' + mobile + 'px)');
 // let device = undefined;
 
 let wheelEventFunc;
-
-(function preload(){ console.log('프리로드');
-    let img = [
-        'images/img_popup.png',
-        'images/ft_logo.png',
-        'images/logo.png',
-        'images/logo_mo.png',
-        'images/main/img_main01.png',
-        'images/main/img_main02.png',
-        'images/main/img_main03.png',
-        'images/main/bg_main01.jpg',
-        'images/main/bg_main02.png',
-        'images/main/bg_main03.jpg',
-        'images/main/bg_main01_mo.jpg',
-        'images/main/bg_main02_mo.png',
-        'images/main/bg_main03_mo.png',
-        'images/main/img_menu01.png',
-        'images/main/img_menu02.png',
-        'images/main/img_menu03.png',
-        'images/main/img_menu04.png',
-        'images/main/img_menu05.png',
-        'images/main/img_menu06.png',       
-        'images/main/img_menu01_hover.png',
-        'images/main/img_menu02_hover.png',
-        'images/main/img_menu03_hover.png',
-        'images/main/img_menu04_hover.png',
-        'images/main/img_menu05_hover.png',
-        'images/main/img_menu06_hover.png',
-        'images/main/bg_event.jpg',
-        'images/main/bg_delivery.jpg',
-        'images/main/bg_store.jpg',
-        'images/main/bg_event_mo.jpg',
-        'images/main/bg_delivery_mo.jpg',
-        'images/main/bg_store_mo.jpg',
-        'images/main/img_franchise.jpg',
-        'images/main/img_franchise_mo.jpg',
-        'images/main/bg_nav.jpg'
-    ];
-    
-    [].forEach.call(img, function(elem){
-       let img = new Image();
-        img.src = elem;
-    });
-}());
+//
+//(function preload(){ console.log('프리로드');
+//    let img = [
+//        'images/img_popup.png',
+//        'images/ft_logo.png',
+//        'images/logo.png',
+//        'images/logo_mo.png',
+//        'images/main/img_main01.png',
+//        'images/main/img_main02.png',
+//        'images/main/img_main03.png',
+//        'images/main/bg_main01.jpg',
+//        'images/main/bg_main02.png',
+//        'images/main/bg_main03.jpg',
+//        'images/main/bg_main01_mo.jpg',
+//        'images/main/bg_main02_mo.png',
+//        'images/main/bg_main03_mo.png',
+//        'images/main/img_menu01.png',
+//        'images/main/img_menu02.png',
+//        'images/main/img_menu03.png',
+//        'images/main/img_menu04.png',
+//        'images/main/img_menu05.png',
+//        'images/main/img_menu06.png',       
+//        'images/main/img_menu01_hover.png',
+//        'images/main/img_menu02_hover.png',
+//        'images/main/img_menu03_hover.png',
+//        'images/main/img_menu04_hover.png',
+//        'images/main/img_menu05_hover.png',
+//        'images/main/img_menu06_hover.png',
+//        'images/main/bg_event.jpg',
+//        'images/main/bg_delivery.jpg',
+//        'images/main/bg_store.jpg',
+//        'images/main/bg_event_mo.jpg',
+//        'images/main/bg_delivery_mo.jpg',
+//        'images/main/bg_store_mo.jpg',
+//        'images/main/img_franchise.jpg',
+//        'images/main/img_franchise_mo.jpg',
+//        'images/main/bg_nav.jpg'
+//    ];
+//    
+//    [].forEach.call(img, function(elem){
+//       let img = new Image();
+//        img.src = elem;
+//    });
+//}());
 
 window.onload = function() {
     setTimeout(function(){
