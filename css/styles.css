@@ -639,13 +639,11 @@ body { overflow-x: hidden; font-size: 17px; font-family: 'Cormorant Garamond', '
 
 .community__txt { display: table; position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; transition: 0.3s; table-layout: fixed; }
 
-.touch .community__txt { max-height: 450px; background: rgba(0, 0, 0, 0.3); }
+.touch .community__txt { background: rgba(0, 0, 0, 0.3); }
 
 .community__txt:hover { background: rgba(0, 0, 0, 0.3); }
 
-.community__link { display: table-row; height: 100%; padding: 25px; box-sizing: border-box; }
-
-.community__inner { display: table-cell; height: 100%; vertical-align: middle; }
+.community__link { display: table-cell; height: 100%; padding: 25px; vertical-align: middle; box-sizing: border-box; }
 
 .community__tit { font-size: 46px; }
 

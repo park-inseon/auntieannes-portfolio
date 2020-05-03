@@ -1731,7 +1731,7 @@ body::-webkit-scrollbar { //크롬, 사파리
         table-layout: fixed;
         
         .touch & {
-            max-height: 450px;
+//            max-height: 450px;
             background: rgba(#000, 0.3);
         }
          
@@ -1741,17 +1741,11 @@ body::-webkit-scrollbar { //크롬, 사파리
     }
 
     &__link {
-        display: table-row;
-        height: 100%;
-        padding: 25px;
-//        vertical-align: middle;
-        box-sizing: border-box;
-    }
-    
-    &__inner {
         display: table-cell;
         height: 100%;
+        padding: 25px;
         vertical-align: middle;
+        box-sizing: border-box;
     }
     
     &__tit {
