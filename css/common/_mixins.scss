@@ -28,15 +28,9 @@
     position: $pos;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-
-//@mixin vhCenter($pos: null, $align: null, $vh: null) {
-//    position: $pos;
-//    #{$align}: 0;
-//    #{$vh}: 50%;
-//    transform: if($vh == top, translateY(-50%), translateX(-50%));
-//}
 
 @mixin underbar($w: 100%, $h: 2px, $color: #fff, $ani: null, $t: $G-time) {
     display: block;
@@ -63,6 +57,16 @@
     height: 383px;
     content: url(../images/common/img_text-animation.png);
     animation: rotate360 15s linear infinite;
+}
+
+@mixin animation($name) {
+    
+    @keyframes #{$name} {
+        @content;
+    }
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
 }
 
 @mixin media($breakpoint, $minmax:max) {
