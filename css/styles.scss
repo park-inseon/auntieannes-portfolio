@@ -1,14 +1,22 @@
+/* 0506 - 21:02 */
+
 @charset "utf-8";
-//@import "fonts.css";
+@import "fonts.css";
 @import "common/_variables.scss";
 @import "common/_mixins.scss";
 @import "common/_reset.scss";
-@import "common/animation.css";
+@import "common/_animation.scss";
 
 /* global style */
 * {
     letter-spacing: -1px;
     word-break: keep-all;
+    box-sizing: border-box;
+}
+
+html,body {
+    width: 100%;
+    min-height: 100%;  
 }
 
 body {
@@ -93,11 +101,6 @@ body::-webkit-scrollbar { //크롬, 사파리
     &__nav {
         display: block;
         float: right;
-        margin-right: 60px;
-        
-        @include media(desktop) {
-            margin-right: 10px;
-        }
         
         @include media(mobile) {
             display: none;
@@ -230,7 +233,6 @@ body::-webkit-scrollbar { //크롬, 사파리
     &.active {
         background-color: $G-color-secondary;
         transform: rotateZ(180deg);
-        transition: $G-time;
         
         .ham__bars {
             background: #fff;
@@ -589,7 +591,6 @@ body::-webkit-scrollbar { //크롬, 사파리
         font-size: 18px;
         
         @include media(tablet) {
-//            font-family: 'Noto Sans KR';
             font-size: 16px;
         }
         
@@ -678,7 +679,7 @@ body::-webkit-scrollbar { //크롬, 사파리
 }
 
 .popup {
-    display: none; //수정
+    display: block; //수정
     position: fixed;
     width: 100%;
     height: 100%;
@@ -761,6 +762,11 @@ body::-webkit-scrollbar { //크롬, 사파리
     animation-duration: $G-time;
     animation-fill-mode: forwards;
     
+    @include media(mobile) {
+        right: 20px;
+        bottom: 30px;
+    }
+    
     &.show {
         display: block;
     }
@@ -769,6 +775,11 @@ body::-webkit-scrollbar { //크롬, 사파리
         @include circle(80px);
     
         box-shadow: 4px 6px 40px rgba(0, 0, 0, 0.15);
+        
+        @include media(mobile) {
+            width: 56px;
+            height: 56px;
+        }
     }
     
     &__txt {
@@ -778,6 +789,11 @@ body::-webkit-scrollbar { //크롬, 사파리
         color: $G-color-secondary;
         letter-spacing: 1px;
         
+        @include media(mobile) {
+            font-size: 13px;
+            letter-spacing: normal;
+        }
+        
         &:before {
             display: block;
             width: 21px;
@@ -786,29 +802,83 @@ body::-webkit-scrollbar { //크롬, 사파리
             background: url(../images/common/icon_btn-top.png) no-repeat 50% 50%;
             background-size: 100%;
             content: '';
+            
+            @include media(mobile) {
+                width: 12px;
+                height: 7px;
+                margin-bottom: 2px;
+            }
+        }
+    }
+}
+
+.scrollnav {
+    $this: &;
+    
+    position: fixed;
+    top: 50%;
+    left: 70px;
+    z-index: 10;
+    font-size: 14px;
+    font-family: 'Barlow', sans-serif;
+    color: #fff;
+    opacity: 1;
+    transform: translateY(-50%);
+    transtion: opacity $G-time;
+    
+    @include media(desktop-l) {
+        left: 30px;
+    }
+
+    @include media(tablet) {
+        display: none;
+    }
+    
+    &__item {
+        margin: 8px 0;
+    }
+    
+    &__link {
+        @include circle(11px, transparent);
+
+        display: inline-block;
+        margin-right: 15px;
+        border: 1px solid #fff;
+        vertical-align: middle;
+        
+        &.active {
+            background: #fff;
+            
+            + #{$this}__txt {
+                display: inline;
+            }
+        }
+    }
+    
+    &__txt {
+        display: none;
+    }
+    
+    &--color-bk {
+        color: #000;
+        
+        #{$this}__link {
+            border-color: #b9b9b9;
+            
+            &.active {
+                border-color: #000;
+                background: #000;
+            }
         }
     }
 }
 
 .container {
+    height: 100vh;
+    
     @include media(tablet) {
         max-width: 750px;
         margin: 0 auto;
-    }
-}
-
-/* scroll navigation */
-.scrollnav {
-    position: fixed;
-    top: 50%;
-    left: 0;
-    z-index: 10;
-    font-size: 14px;
-    font-family: 'Barlow', sans-serif;
-    transform: translateY(-50%);
-    
-    @include media(tablet) {
-        display: none;
     }
 }
 
@@ -879,7 +949,7 @@ body::-webkit-scrollbar { //크롬, 사파리
         &.active {     
             z-index: 2;
             
-            .main__product, .main__content {
+            .main__product, .main__content {                
                 display: block;
                 animation: fadeIn $G-time;
             }
@@ -929,6 +999,21 @@ body::-webkit-scrollbar { //크롬, 사파리
         @include media(tablet) {
             width: 100%;
         }
+        
+        &:after {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(#000, 0.15);
+            content: '';
+            
+            @include media(tablet) {
+                display: none;
+            }
+        }
     }
     
     &__img {
@@ -948,7 +1033,7 @@ body::-webkit-scrollbar { //크롬, 사파리
     &__content {
         @include boxCol(2);
 
-        display: none;
+//        display: none;
         position: relative;
         
         @include media(tablet) {
@@ -997,7 +1082,7 @@ body::-webkit-scrollbar { //크롬, 사파리
         }
     }
     
-    &__tit {
+    &__tit {            
         font-size: 67px;
         color: $G-color-secondary;
         letter-spacing: normal;
@@ -1027,6 +1112,10 @@ body::-webkit-scrollbar { //크롬, 사파리
                 font-size: 48px;
             }
         }
+        
+        & > .txt-ani {
+            animation-delay: 0.5s;
+        }
     } 
     
     &__tag {
@@ -1035,8 +1124,7 @@ body::-webkit-scrollbar { //크롬, 사파리
         font-size: 18px;
         font-family: 'Noto Sans KR', sans-serif;
         color: $G-color-secondary;    
-        animation-delay: 1s;
-        
+
         @include media(desktop-s) {
             font-size: 14px;
         }
@@ -1049,14 +1137,23 @@ body::-webkit-scrollbar { //크롬, 사파리
         @include media(mobile-xl) {
             font-size: 14px;
         }
+        
+        & > .txt-ani {
+            animation-delay: 1s;
+        }
     }
     
     &__more {
         opacity: 0;
-        animation: fadeIn 0.8s 1s forwards;
-        
+        transition: none;
+
         @include media(tablet) {
             display: none;
+        }
+        
+        .main__slide.active & {
+            opacity: 1;
+            transition: 0.8s 0.5s;
         }
     }
     
@@ -1082,7 +1179,7 @@ body::-webkit-scrollbar { //크롬, 사파리
         z-index: 10;
         border: 3px solid #fff;
         font-size: 28px;
-        line-height: 58px;
+        line-height: 54px;
         font-family: 'Barlow Semi Condensed', sans-serif;
         color: #fff;
         text-align: center;
@@ -1151,8 +1248,8 @@ body::-webkit-scrollbar { //크롬, 사파리
     &__mo-btn {        
         width: 60px;
         height: 60px;
+        padding-bottom: 6px;
         font-size: 35px;
-//        line-height: 60px;
         font-family: 'Barlow Semi Condensed', sans-serif;
         
         &.prev {
@@ -1175,7 +1272,15 @@ body::-webkit-scrollbar { //크롬, 사파리
 
 .txt-ani {
     display: block;
-    animation: txtAni $G-time-slow;
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+    transition: none;
+
+    .main__slide.active & {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition: 2s;
+    }
 }
 
 .more-btn {
@@ -1248,7 +1353,6 @@ body::-webkit-scrollbar { //크롬, 사파리
             
             &:before {
                 background-image: url(../images/common/icon_circle-white.png);
-//                background-size: cover;
             }
             
             &:after {
@@ -1262,54 +1366,9 @@ body::-webkit-scrollbar { //크롬, 사파리
     }
 }
 
-.scrollnav {
-    $this: &;
-    
-    left: 70px;
-    color: #fff;
-    opacity: 1;
-    transtion: opacity $G-time;
-    
-    @include media(desktop-l) {
-        left: 30px;
-    }
-
-    &__item {
-        margin: 8px 0;
-    }
-    
-    &__link {
-        @include circle(9px, transparent);
-
-        display: inline-block;
-        margin-right: 15px;
-        border: 1px solid #fff;
-        vertical-align: middle;
-        
-        &.active {
-            background: #fff;
-            
-            + #{$this}__txt {
-                display: inline;
-            }
-        }
-    }
-    
-    &__txt {
-        display: none;
-    }
-    
-    &--color-bk {
-        color: #000;
-        
-        #{$this}__link {
-            border-color: #b9b9b9;
-            
-            &.active {
-                border-color: #000;
-                background: #000;
-            }
-        }
+.scrollpage {    
+    &.scroll-ani {
+        transition: transform $G-time cubic-bezier(.66,0,.44,.96);
     }
 }
 
@@ -1341,7 +1400,8 @@ body::-webkit-scrollbar { //크롬, 사파리
         
         padding: 13px;
         box-shadow: 10px 0px 7px 0px rgba(0,0,0,0.08);
-        transition: 0.2s;        
+        box-sizing: content-box;
+        transition: 0.2s;
     }
 }
 
@@ -1365,11 +1425,10 @@ body::-webkit-scrollbar { //크롬, 사파리
 
 .menu {
     $this: &;
-    @include clearfix;
 
     position: relative;
     overflow: hidden;
-    height: 100vh;
+//    height: 100vh;
     
     @include media(tablet) {
         height: 100%;
@@ -1390,7 +1449,6 @@ body::-webkit-scrollbar { //크롬, 사파리
     &__container {
         width: 100%;
         height: 100%;
-        box-sizing: border-box;
         
         @include media(desktop-xs) {
             padding: 0 20px;
@@ -1400,10 +1458,23 @@ body::-webkit-scrollbar { //크롬, 사파리
             display: none;
             padding-top: map-get($header-size, mobile);
         }
+    }
+        
+    &__slideshow {
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        overflow: hidden;
+        width: 100%;
+//        height: 100%; //설정
+        max-width: 1600px;
+        padding-top: 50px;
+        box-sizing: content-box;
+        transform: translate(-50%, 50%);
         
         &:before {
-            @include center(absolute);
-            
+            position: absolute;
+            top: 50%;
             display: block;
             width: 100%;
             font-weight: 700;
@@ -1411,37 +1482,22 @@ body::-webkit-scrollbar { //크롬, 사파리
             color: rgba(#000, 0.03);
             text-align: center;
             content: "Auntie Anne's";
+            transform: translateY(-50%);
         }
-    }
-        
-    &__slideshow {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-        max-width: 1600px;
-        margin: 0 auto;
-        padding-top: map-get($header-size, default);
-        box-sizing: border-box;
     }
     
     &__slider {
         position: relative;
-//        top: 60px;
         left: 0;
         width: 100%;
-        height: 90%;
-        transition: left $G-time ease-in-out;
+        transition: left $G-time cubic-bezier(.66,0,.44,.96);
     }
     
     &__slide {
         position: absolute;
-//        top: -100px;
         left: 0;
         width: 100%;
-        height: 100%;
         box-sizing: border-box;
-//        transform: translateY(-50%);
         
         @include media(desktop-l) {
 //            padding: 0 60px;
@@ -1457,30 +1513,13 @@ body::-webkit-scrollbar { //크롬, 사파리
         
         position: relative;  
         height: auto;
-        margin-top: -50px;
         
         &:nth-child(2n) {
-            right: 90px;
-            margin-top: 10%;
-
             #{$this}__img {
                 animation-name: rotateLeft;
             } 
         }
-        
-        &:nth-child(3n) {     
-            margin-top: -70px;
-                
-            #{$this}__img-box {
-                right: 100px;    
-//                left: auto; 
-            }
-            
-            #{$this}__txt {
-                margin-right: 70px;
-            }      
-        }
-        
+
         &:hover {
             .menu__img--hover {
                 opacity: 1;
@@ -1488,20 +1527,42 @@ body::-webkit-scrollbar { //크롬, 사파리
         }
     }
     
+    &__item02 {
+        padding-top: 15%;
+        right: 90px;
+    }
+    
+    &__item05 {
+        padding-top: 18%;
+        right: 140px;
+    }
+    
     &__tit {
+        position: absolute;
+        top: 80px;
+        width: 100%;
         text-align: center;
+        
+        @include media(tablet) {
+            position: static;
+        }
     }
     
     &__link {
         display: block;
         position: relative;
+    }
+    
+    &__img-box {
+        position: relative;
+        transition: $G-time;
         
         &:before {
             display: block;
             position: absolute;
             width: 100%;
             height: 100%;
-            background: url(../images/common/bg_product_hover.png) no-repeat;
+            background: url(../images/common/bg_product_hover.png) no-repeat 50% 50%;
             background-size: contain;
             content: '';
             opacity: 0;
@@ -1525,15 +1586,10 @@ body::-webkit-scrollbar { //크롬, 사파리
         }
     }
     
-    &__img-box {
-        position: relative;
-        transition: $G-time;
-    }
-    
-    &__img {
+    &__img {        
         position: relative;
         max-width: 100%;
-        animation: rotateRight $G-time-slow infinite alternate;        
+        animation: rotateRight $G-time-slow infinite alternate;       
     }
     
     &__img--hover {
@@ -1544,6 +1600,23 @@ body::-webkit-scrollbar { //크롬, 사파리
         transition: opacity $G-time;
     }
     
+    &__img01 {
+        top: 30px;
+    }
+    
+    &__img03 {
+        right: 100px;
+    }
+    
+    &__img04 {
+        left: 40px;
+    }
+    
+    &__img06 {
+        top: 40px;
+        right: 140px;
+    }
+    
     &__txt {    
         position: absolute;
         top: 50%;
@@ -1551,6 +1624,14 @@ body::-webkit-scrollbar { //크롬, 사파리
         margin-right: -80px;   
         font-family: 'Noto Sans KR', sans-serif;
         transform: translateY(-50%);
+    }
+    
+    &__txt03 {
+        right: 150px;
+    }
+    
+    &__txt06 {
+        right: 130px;
     }
     
     &__name {
@@ -1572,6 +1653,7 @@ body::-webkit-scrollbar { //크롬, 사파리
     &__desc {
         margin: 0.85em 0;
         font-size: 17px;
+        font-family: 'Noto Sans KR', sans-serif;
         color: #777;
         
         @include media(desktop-xs) {
@@ -1586,7 +1668,7 @@ body::-webkit-scrollbar { //크롬, 사파리
     &__btn {
         position: absolute;
         top: 50%;
-        right: 60px;
+        right: 80px;
         transform: rotateZ(180deg);
         
         @include media(desktop-xs) {
@@ -1693,7 +1775,7 @@ body::-webkit-scrollbar { //크롬, 사파리
 .community {
     @include clearfix;
     
-    height: 100vh;
+//    height: 100vh;
     color: #fff;
     text-align: center;
     
@@ -1730,7 +1812,6 @@ body::-webkit-scrollbar { //크롬, 사파리
         transition: 0.3s;
         
         .touch & {
-//            max-height: 450px;
             background: rgba(#000, 0.3);
         }
          
@@ -1785,10 +1866,12 @@ body::-webkit-scrollbar { //크롬, 사파리
 }
 
 .franchise {
-    height: 100vh;    
+//    height: 100vh;
+    min-height: 390px;
     
     @include media(tablet) {
         height: 100%;
+        min-height: auto;
     }
     
     &__container {
@@ -1797,6 +1880,7 @@ body::-webkit-scrollbar { //크롬, 사파리
         max-width: 1415px;
         margin: 0 auto;    
         padding: 0 20px;
+        table-layout: fixed;
         transition: $G-time;
         
         @include media(desktop-xs) {
@@ -1804,7 +1888,7 @@ body::-webkit-scrollbar { //크롬, 사파리
         }
         
         @include media(tablet) {
-            padding: 80px 20px;
+            padding: 80px 20px; 
             text-align: center;
         }
     }
@@ -1828,6 +1912,7 @@ body::-webkit-scrollbar { //크롬, 사파리
         
         @include media(tablet) {
             width: 100%;
+            padding-right: 0;
         }
     }
     
@@ -1862,7 +1947,6 @@ body::-webkit-scrollbar { //크롬, 사파리
     
     &__bg {
         position: relative;
-//        padding-left: 20px;
         margin-right: 80px;
         
         @include media(tablet-s) {
@@ -1871,7 +1955,11 @@ body::-webkit-scrollbar { //크롬, 사파리
         
         @include media(tablet) {
             margin: 0 auto;
-            padding: 0;
+            padding-top: 50px;
+        }
+        
+        @include media(mobile) {
+            padding-top: 0;
         }
         
         &:before {
@@ -1909,6 +1997,7 @@ body::-webkit-scrollbar { //크롬, 사파리
     &__img {
         display: block;
         width: 100%;
+        height: 100%;
         
         @include media(tablet-s) {
             max-width: 500px;
@@ -1958,7 +2047,7 @@ body::-webkit-scrollbar { //크롬, 사파리
     text-align: center;
     letter-spacing: -1px;
     
-    @include media(tablet) {
+    @include media(mobile) {
         font-weight: 300;
     }
 
@@ -1988,7 +2077,7 @@ body::-webkit-scrollbar { //크롬, 사파리
     }
     
     &__company {
-        @include media(tablet) {
+        @include media(mobile) {
             display: block;
         }
     }
@@ -2008,15 +2097,16 @@ body::-webkit-scrollbar { //크롬, 사파리
         height: 40px;
         margin: 15px 5px 0;
         border: 1px solid rgba(#fff, 0.5);
+        font-weight: 500;
         font-size: 13px;
-        line-height: 40px;
+        line-height: 38px;
         box-sizing: border-box;
         transition: $G-time;
         
         @include media(tablet) {
             width: 150px;
             height: 45px;
-            line-height: 45px;
+            line-height: 43px;
         }    
         
         @include media(mobile-xl) {
